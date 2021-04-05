@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchAsteroids = async () => {
       setLoading(true)
-      const res = await fetch('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=PT5XvrO1gadaLzUEJf6mQe6mfydmb6Hn4Ada0yCr')
+      const res = await fetch('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=<>')
       const { near_earth_objects } = await res.json()
 
       setAsteroids(near_earth_objects)
