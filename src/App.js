@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import Asteroids from './components/Asteroids';
+import Header from './components/Header';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AstDetails from './components/AstDetails';
+
+
 
 function App() {
+  const [asteroids, setAsteroids] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // fetches asteroids from NASA API. Default - 20 objects per page
+  useEffect(() => {
+    const fetchAsteroids = async () => {
+      setLoading(true)
+      const res = await fetch('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=PT5XvrO1gadaLzUEJf6mQe6mfydmb6Hn4Ada0yCr')
+      const { near_earth_objects } = await res.json()
+
+      setAsteroids(near_earth_objects)
+      setLoading(false)
+    }
+
+    fetchAsteroids()
+    console.log(asteroids)
+  }, [])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Asteroids asteroids={asteroids} />
+          </Route>  
+          <Route path="/details">
+            <AstDetails />
+          </Route> 
+        </Switch>
+      </Router>    
+      
+    
   );
 }
 
