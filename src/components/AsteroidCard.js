@@ -4,19 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function AsteroidCard({asteroid}) {
 
-    // const approachDates = asteroid.close_approach_data.close_approach_date;
-    // console.log(approachDates)
-    
     let relevantDatesArrays = asteroid.close_approach_data.filter((item) => Date.parse(item.close_approach_date) > Date.now());
-
-    // const relevantDates = asteroid.close_approach_data.filter(item => {
-    //     let convertedDays = []
-    //     convertedDays = Date.parse(item.close_approach_date); // parses dates to ms
-    //     let today = Date.now();
-    //     return convertedDays > today;
-    //     // console.log(convertedDays);
-    // })
-    // console.log(relevantDates)
 
     return (
         <div className="astc-container">
@@ -64,14 +52,7 @@ function AsteroidCard({asteroid}) {
                 </Link>
             </div>
                 
-                
-              
-                
-    
-                    
-                   
-                   
-                
+  
         </div>
     )
 }
