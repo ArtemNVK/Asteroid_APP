@@ -30,7 +30,7 @@ function App() {
   return (
   
       <Router>
-        <Header />
+        <Header/>
         <Switch>
           <Route exact path="/">
             <Asteroids asteroids={asteroids} />
