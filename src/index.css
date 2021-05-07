@@ -1,16 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
 
-
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f9f9f9;
+  font-family: Roboto;
+  background: black;
 }
 
 .appHeader {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+
+
+.astDetails-headerTitle {
+  font-family: bankgothic;
   text-align: center;
   padding: 10px;
   background-color: #333;
@@ -20,12 +32,1020 @@ body {
   right: 0;
   left: 0;
   z-index: 100;
-  
+}
+
+.headerAppTitle {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.searchFilters-container {
+  display: flex;
+  z-index: 1000;
+  background-color: #444;
+  color: #fff;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+#filter-hazard-span {
+  color: red;
+}
+
+.asteroids {
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .asteroids-container {
-  margin-top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem;
+}
+
+.error-container {
+  text-align: center;
+  color: #fff;
+}
+
+.scrollTop {
+  position: fixed; 
+  width: 50px;
+  left: 80%;
+  bottom: 10%;
+  align-items: center;
+  height: 20px;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+  color: rgb(80, 81, 83);
+}
+
+.scrollTop:hover{
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.loader img {
+  width: 400px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none; 
+  appearance: none;
+  display: block;
+  margin: 5px 0;
+  padding: 10px 50px 10px 10px;
+  background: url('./img/select.png') no-repeat 95% center;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  /* border: 2px solid #fff; */
+  width: 280px;
+  cursor: pointer;
+  transition: all 5s ease-in-out;
+}
+
+
+.tooltipTrigger {
+  width: fit-content;
+  cursor: help;
+}
+
+/* PageNotFound.js */
+
+.pageNotFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 500px;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0E 100%);
+  overflow: hidden;
+  flex: 1 0 300px;
+  text-align: center;
+  letter-spacing: 10px;
+}
+
+.pageNotFound-message {
+  max-height: 300;
+  z-index: 300;
+  font-size: 2.5em;
+  color: #fff;
+  font-weight: 700;
+  position: absolute;
+  text-align: center;
+}
+
+
+/* Home.js component */
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0E 100%);
+  overflow: hidden;
+}
+
+.homepageTitle-container {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  text-align: center;
+  border-bottom: 3px solid #333;
+}
+
+#homepageTitle {
+  color: #fff;
+  overflow: hidden;
+  font-weight: 800;
+  font-size: 2em; 
+  white-space: nowrap;
+  text-align: center;
+  border-right: 10px solid orange;
+  animation: 
+  typing 3.5s steps(24,end) forwards,
+  blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {width:0em}
+  to {width:7.5em}
+}
+
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: orange; }
+}
+
+/* Stars.js */
+
+.asteroid-img {
+  position: absolute;
+  pointer-events: none;
+  top: -350px;
+  width: 100%;
+  height: 100%;
+  background: url('/src/img/kisspng-asteroid-mining-asteroid-belt-asteroid-family-plan-5b018301cd3593.4103433515268257298405.png');
+  background-repeat: no-repeat;
+  animation: float 80s ease infinite;
+}
+
+@keyframes float {
+  from { transform: scale(1); }
+  to { top: 2000px; transform: scale(3); }
+}
+
+.star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  animation: 
+  animate 8s ease-in-out infinite,
+  backgroundmove 16s linear infinite;
+}
+
+.star.star1 {
+  animation-delay: 0s;
+  background: url('/src/img/stars/star1.png');
+}
+.star.star2 {
+  animation-delay: -1s;
+  background: url('/src/img/stars/star2.png');
+}
+.star.star3 {
+  animation-delay: -2s;
+  background: url('/src/img/stars/star3.png');
+}
+.star.star4 {
+  animation-delay: -3s;
+  background: url('/src/img/stars/star4.png');
+}
+.star.star5 {
+  animation-delay: -4s;
+  background: url('/src/img/stars/star5.png');
+}
+.star.star6 {
+  animation-delay: -5s;
+  background: url('/src/img/stars/star6.png');
+}
+.star.star7 {
+  animation-delay: -6s;
+  background: url('/src/img/stars/star7.png');
+}
+.star.star8 {
+  animation-delay: -7s;
+  background: url('/src/img/stars/star8.png');
+}
+
+@keyframes animate {
+  0%, 20%, 40%, 60%, 80%, 100% { opacity: 0 }
+  10%, 30%, 50%, 70%, 90% { opacity: 1 }
+}
+@keyframes backgroundmove {
+  0% { transform: scale(1) }
+  100% { transform: scale(2) }
+}
+
+
+
+/*  */
+
+.browseBtn-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.browseBtn {
+  border: 3px solid orange;
+  background: none;
+  padding: 0 15px;
+  max-width: 450px;
+  height: 70px;
+  display: flex;
+  position: relative;
+  font-size: 1.3em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 5px;
+  border-radius: 1%;
+  cursor: pointer;
+  color: #fff;
+  margin-top: auto;
+  text-transform: uppercase;
+  transition: 0.5s;
+  font-weight: 800;
+  animation: 
+  fadein 6s ease-in-out forwards;
+}
+
+.browseBtn:hover {
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+}
+
+.browseBtn-span {
+  display: block;
+  position: absolute;
+  background: orange;
+}
+
+.browseBtn-span:nth-child(1) {
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+
+.browseBtn:hover .browseBtn-span:nth-child(1) {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 0.5s;
+}
+
+.browseBtn-span:nth-child(2) {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+.browseBtn:hover .browseBtn-span:nth-child(2) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.browseBtn-span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.browseBtn:hover .browseBtn-span:nth-child(3) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.browseBtn-span:nth-child(4) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.browseBtn:hover .browseBtn-span:nth-child(4) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+
+/* Moto.js */
+
+.moto {
+  display: flex;
+  justify-content: center;
+  flex: 1 0 300px;
+  text-align: center;
+  max-width: 700px;
+  max-height: 270px;
+  margin-bottom: 50px;
+  letter-spacing: 10px;
+  animation: 
+  fadein 4s ease-in-out forwards;
+}
+
+#moto-text {
+  font-size: 3.5em;
+  color: #fff;
+  font-weight: 700;
+}
+
+
+@keyframes fadein {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+/* CountUp.js */
+
+.countup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  font-size: 1em;
+  letter-spacing: 8px;
+  border-top: 3px solid #333;
+  border-bottom: 3px solid #333;
+  margin-bottom: 20px;
+  animation: 
+  fadein 4s ease-in-out forwards;
+}
+
+.counter {
+  font-size: 3em;
+  font-weight: 500;
+  letter-spacing: 25px;
+  color: orange;
+}
+
+
+/* STYLES THE ASTEROID CARD DIV ITSELF WHICH IS BEING RENDERED FROM THE ASTEROIDS.JS COMPONENT */
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 300px;
+  width: 350px;
+  overflow: hidden;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 5px;
+  box-shadow: 3px 2px 14px rgba(255,255,255,0.2);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 200ms ease-in-out;
+  min-height: 550px;
+  padding: 1rem;
+  margin: 0;
+}
+
+.card:hover {
+  transform: translateY(-1rem);
+  box-shadow: 2px 3px 18px rgba(255,255,255,0.4);
+} 
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////// */
+
+.astc-header {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  border-bottom: 0.3rem solid #333;
+}
+
+.red {
+  position: relative;
+  color: black;
+  letter-spacing: 5px;
+  font-size: 1.7em;
+  outline: none;
+  animation: glow 1s linear infinite;
+}
+
+@keyframes glow {
+  0% { color: black }
+  
+  25% { color: rgb(255, 0, 0) }
+
+  50% { color: rgb(255, 0, 0) }
+
+  75% { color: rgb(126, 2, 2) }
+
+  100% { color: rgb(54, 1, 1) }
+}
+
+.green {
+  letter-spacing: 5px;
+}
+
+
+
+.astc-header-observed {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom: 0.3rem solid #333;
+}
+
+.astc-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-items: center;
+}
+
+.diameter {
+  border-bottom: 0.3rem solid #333;
+}
+
+ul {
+  list-style: none;
+}
+
+.astc-closeApproachesList {
+
+}
+
+/* AsteroidCard.js button  */
+
+.astc-learnMore-button {
+  width: 100%;
+  padding: 10px;
+  letter-spacing: 5px;
+  border-radius: 1%;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  margin-top: auto;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.astc-learnMore-button:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.astc-learnMore-button-container {
+  text-decoration: none;
+}
+
+
+/* Asteroids.js load more button */
+
+.loadMoreBtn-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.loadMoreBtn {
+  border: none;
+  width: 30%;
+  max-width: 450px;
+  height: 50px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 5px;
+  border-radius: 2%;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+  margin-top: auto;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.loadMoreBtn:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.loadMoreBtn-span {
+  display: block;
+  position: absolute;
+  background: #fff;
+}
+
+.loadMoreBtn-span:nth-child(1) {
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+
+.loadMoreBtn:hover .loadMoreBtn-span:nth-child(1) {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 0.5s;
+}
+
+.loadMoreBtn-span:nth-child(2) {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+.loadMoreBtn:hover .loadMoreBtn-span:nth-child(2) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.loadMoreBtn-span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.loadMoreBtn:hover .loadMoreBtn-span:nth-child(3) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.loadMoreBtn-span:nth-child(4) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.loadMoreBtn:hover .loadMoreBtn-span:nth-child(4) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+
+/*  */
+
+
+.astCards-dont-satisfy-filter {
+  display: none;
+}
+
+/* AstDetails.js Component */
+
+.ast-details {
+  margin-top: 100px;
+}
+
+.ast-details-header {
+  text-align: center;
+  color: #fff;
+}
+
+.astDetails-headerTitle-container {
+  background-color: #333;
+  text-align: center;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.astDetails-sentry {
+  text-align: center;
+  margin: 0 auto;
+  cursor: help;
+  width: fit-content;
+}
+
+.astDetailsBtn-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.astDetailsBtn {
+  border: 3px solid #fff;
+  background: none;
+  padding: 0 15px;
+  max-width: 450px;
+  height: 70px;
+  display: flex;
+  position: relative;
+  font-size: 1.3em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 5px;
+  border-radius: 1%;
+  cursor: pointer;
+  color: #fff;
+  margin-top: auto;
+  transition: 0.5s;
+  font-weight: 800;
+}
+
+.astDetailsBtn:hover {
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+}
+
+.astDetailsBtn-span {
+  display: block;
+  position: absolute;
+  background: #fff;
+}
+
+.astDetailsBtn-span:nth-child(1) {
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+
+.astDetailsBtn:hover .astDetailsBtn-span:nth-child(1) {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 0.5s;
+}
+
+.astDetailsBtn-span:nth-child(2) {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+.astDetailsBtn:hover .astDetailsBtn-span:nth-child(2) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.astDetailsBtn-span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.astDetailsBtn:hover .astDetailsBtn-span:nth-child(3) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.astDetailsBtn-span:nth-child(4) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+.astDetailsBtn:hover .astDetailsBtn-span:nth-child(4) {
+  transform: scaleY(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 0.5rem;
+  width: 0.5rem;
+  background: #333;
+  top: 46%;
+  left: 0.1%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+
+
+/*  */
+
+
+
+/* AstDetails collapsible */
+
+
+.accordion {
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+.accordion-item {
+  background-color: #fff;
+  color: #111;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.25);
+}
+.accordion-item-header {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  min-height: 3.5rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.accordion-item-header::after {
+  content: "\002B";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+}
+.accordion-item-header.active::after {
+  content: "\2212";
+}
+.accordion-item-body {
+  max-height: 0;
+  overflow: auto;
+  transition: max-height 0.2s ease-out;
+}
+.accordion-item-body-content {
+  padding: 1rem;
+  line-height: 1.5rem;
+  border-top: 1px solid;
+  border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+}
+
+
+
+/*  */
+
+.astDetails-approachData {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+} 
+
+.astDetails-relativeVelocity {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+} 
+
+.astDetails-missDistance {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+} 
+
+.astDetails-orbitClass-list {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+} 
+
+
+
+/* Media queries */
+
+/* mobile styles */
+
+@media screen and (max-width: 600px){
+  .moto {
+    max-height: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #moto-text {
+    font-size: 2.5em;
+  }
+
+  .asteroids {
+    margin-top: 220px;
+  }
+}
+
+@media screen and (max-width: 375px){
+  .card {
+    width: 300px;
+  }
   
 }
+
+@media screen and (max-width: 320px){
+  .moto {
+    max-width: 700px;
+    max-height: 220px;
+    margin-top: 70px;
+  }
+  
+  #moto-text {
+    font-size: 2em;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .appHeader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .asteroids {
+    margin-top: 220px;
+  }
+
+  .card {
+    width: 250px;
+  }
+
+  .counter {
+    font-size: 1.7em;
+    letter-spacing: 20px;
+  }
+
+  .browseBtn {
+    padding: 0 15px;
+    max-width: 300px;
+    height: 50px;
+    font-size: 1.3em;
+  }
+
+  .headerAppTitle {
+    font-size: 0.7em;
+  }
+
+  .searchFilters-container {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  select {
+    width: 200px;
+  }
+
+  .ast-details {
+    margin-top: 140px;
+  }
+  
+
+}
+@media screen and (max-width: 360px){
+  .moto {
+    max-width: 700px;
+    max-height: 220px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+  }
+  
+  #moto-text {
+    font-size: 2em;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .asteroids {
+    margin-top: 220px;
+  }
+
+  .counter {
+    font-size: 1.7em;
+    letter-spacing: 20px;
+  }
+
+  .browseBtn {
+    padding: 0 15px;
+    max-width: 300px;
+    height: 50px;
+    font-size: 1.3em;
+  }
+
+}
+
 
 

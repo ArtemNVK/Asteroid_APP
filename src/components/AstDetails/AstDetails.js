@@ -1,13 +1,13 @@
 import { Link, useParams  } from 'react-router-dom';
-import useAsteroidIdSearch from '../useAsteroidIdSearch';
+import useAsteroidIdSearch from '../../customHooks/useAsteroidIdSearch';
 import { v4 as uuidv4 } from 'uuid';
-import Loader from './Loader';
-import Tooltip from './Tooltip';
+import Loader from '../Common/Loader';
+import Tooltip from '../Common/Tooltip';
 import {BsQuestionSquare} from 'react-icons/bs';
 import {BsQuestionSquareFill} from 'react-icons/bs';
-import {details} from './detailsInfo';
+import {details} from '../Common/detailsInfo';
 import AstDetailsBtn from './AstDetailsBtn';
-import Error from './Error';
+import Error from '../Common/Error';
 
 function AstDetails() {
 
@@ -397,7 +397,7 @@ function AstDetails() {
       }  
       {loading && <Loader/>}
       {error && <Error />}
-      <AstDetailsBtn />
+      {!loading && <AstDetailsBtn />}
         
 
 

@@ -1,14 +1,12 @@
 import { useState, useRef, useCallback } from 'react';
 import AsteroidCard from './AsteroidCard';
 import { v4 as uuidv4 } from 'uuid';
-import useAsteroidsSearch from '../useAsteroidsSearch';
-import ScrollToTop from './ScrollToTop';
-import SearchFilters from './SearchFilters';
-import Header from './Header';
-import Loader from './Loader';
+import useAsteroidsSearch from '../../customHooks/useAsteroidsSearch';
+import ScrollToTop from '../Common/ScrollToTop';
+import Header from '../Header/Header';
+import Loader from '../Common/Loader';
 import LoadMoreBtn from './LoadMoreBtn';
-import Stars from './Stars';
-import Error from './Error';
+import Error from '../Common/Error';
 
 function Asteroids() {
 
